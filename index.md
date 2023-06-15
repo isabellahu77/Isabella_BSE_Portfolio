@@ -32,13 +32,18 @@ For your second milestone, explain what you've worked on since your previous mil
 <iframe width="560" height="315" src="https://www.youtube.com/embed/y3VAmNlER5Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 # First Milestone
-My project is a solar tracker, which tracks where there is the most light, as well as tracking the temperature and humidity of the air. THe project includes several sensors and buttons, including photoresistor sensors, which changes its resistance when light shines on it, a humidity and temperature sensor, which detects and measures the dampness and air temperature, a passive buzzer that plays a variety of tones that could be modified. In the first milestone, I finished building the entire project. and am almost done with the coding process of it. Each individual part works and have been tested, and I have yet to combine it all into one program. I plan to just reference the code and algorithms I used while coding each individual part and putting it all into one class. A problem I was currently facing was with the connection of a pair of the wires, because I plugged one of them into the wrong socket, which resulted in a short circuit and damaged the sensor I was working with.
-
 For your first milestone, describe what your project is and how you plan to build it. You can include:
 - An explanation about the different components of your project and how they will all integrate together
 - Technical progress you've made so far
 - Challenges you're facing and solving in your future milestones
 - What your plan is to complete your project
+
+Summary:
+- Solar Tracker, measures solar energy, temperature, and humidity
+- completed build process, working on Arduino coding portion of project
+- struggled with connecting pair of wires
+
+My project is a solar tracker, which tracks where there is the most light, as well as tracking the temperature and humidity of the air. THe project includes several sensors and buttons, including photoresistor sensors, which changes its resistance when light shines on it, a humidity and temperature sensor, which detects and measures the dampness and air temperature, a passive buzzer that plays a variety of tones that could be modified. In the first milestone, I finished building the entire project. and am almost done with the coding process of it. Each individual part works and have been tested, and I have yet to combine it all into one program. I plan to just reference the code and algorithms I used while coding each individual part and putting it all into one class. A problem I was currently facing was with the connection of a pair of the wires, because I plugged one of them into the wrong socket, which resulted in a short circuit and damaged the sensor I was working with.
 
 **Don't forget to replace the text below with the embedding for your milestone video. Go to Youtube, click Share -> Embed, and copy and paste the code to replace what's below.**
 
