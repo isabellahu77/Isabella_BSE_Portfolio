@@ -32,18 +32,19 @@ For your second milestone, explain what you've worked on since your previous mil
 <iframe width="560" height="315" src="https://www.youtube.com/embed/y3VAmNlER5Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 # First Milestone
-For your first milestone, describe what your project is and how you plan to build it. You can include:
-- An explanation about the different components of your project and how they will all integrate together
-- Technical progress you've made so far
-- Challenges you're facing and solving in your future milestones
-- What your plan is to complete your project
-
 Summary:
 - Solar Tracker, measures solar energy, temperature, and humidity
-- completed build process, as well as the Arduino coding portion (finished entire proj)
+- completed build process, as well as most of Arduino coding portion (9 of 11 proj)
 - struggled with connecting pair of wires, code for movement of servos
 
-My project is a solar tracker, which tracks where there is the most light, as well as tracking the temperature and humidity of the air. THe project includes several sensors and buttons, including photoresistor sensors, which changes its resistance when light shines on it, a humidity and temperature sensor, which detects and measures the dampness and air temperature, a passive buzzer that plays a variety of tones that could be modified. In the first milestone, I finished building the entire project, as well as the coding portion of all the projects that come with the kit (kit comes with 11 total projects). Each individual part works and have been tested, and are combined all into the last project to show the solar panel moving towards the light. Because I already finished the entire project, I plan to start brainstorming on the modifiers I want to add, as well as implementing them onto the solar tracker. A problem I was currently facing was with the connection of a pair of the wires, because I plugged one of them into the wrong socket, which resulted in a short circuit and damaged the sensor I was working with. I also struggled with the coding for the movement of the servos to follow where the light intensity is the highest, as my program resulted in very slow movement and was not very smooth. 
+My project is a solar tracker, which tracks where there is the most light, as well as tracking the temperature and humidity of the air. In the first milestone, I finished building the entire project, as well as the coding portion of 9 projects (kit comes with 11 total projects). Each individual part works and have been tested, and are mostly combined in the last project. I have yet to figure out the code for determining where the solar panel turns based off the light that is projected onto the tracker. A problem I was currently facing was with the connection of a pair of the wires, because I plugged one of them into the wrong socket, which resulted in a short circuit and damaged the sensor I was working with. The solar panel does not move very smoothly, and I plan to figure out what is causing that, as well as implement the actual movement for the panel before my next milestone. For what’s next, I plan to continue working on the coding for this project and put back the lithium power module, as well as understand more about the different processes and how different parts work. 
+
+Components: 
+- photoresister sensor: changes its resistance when light shines on it
+- humidity and temperature sensor: detects and measures dampness and air temperature
+- passive buzzer: plays variety of tones that could be modified
+- digital intensity module: digital light intensity sensor integrated circuit used for two-wire serial bus interface
+- solar panel, push button module, display module, control board, led module
 
 **Don't forget to replace the text below with the embedding for your milestone video. Go to Youtube, click Share -> Embed, and copy and paste the code to replace what's below.**
 
