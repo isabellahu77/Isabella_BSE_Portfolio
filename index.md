@@ -35,10 +35,10 @@
 # First Milestone
 My project is a solar tracker, which tracks where there is the most light, as well as tracking the temperature and humidity of the air. In the first milestone, I finished building the entire project, as well as the coding portion of 9 projects (kit comes with 11 total projects). Each individual part works and have been tested, and are mostly combined in the last project. I have yet to figure out the code for determining where the solar panel turns based off the light that is projected onto the tracker. A problem I was currently facing was with the connection of a pair of the wires, because I plugged one of them into the wrong socket, which resulted in a short circuit and damaged the sensor I was working with. The solar panel does not move very smoothly, and I plan to figure out what is causing that, as well as implement the actual movement for the panel before my next milestone. For what’s next, I plan to continue working on the coding for this project and put back the lithium power module, as well as understand more about the different processes and how different parts work. 
 
-## Summary:
+<!-- ## Summary:
 - Solar Tracker, measures solar energy, temperature, and humidity
 - completed build process, as well as most of Arduino coding portion (9 of 11 proj)
-- struggled with connecting pair of wires, code for movement of servos
+- struggled with connecting pair of wires, code for movement of servos -->
 
 ## Components: 
 - photoresister sensor: changes its resistance when light shines on it
@@ -46,6 +46,15 @@ My project is a solar tracker, which tracks where there is the most light, as we
 - passive buzzer: plays variety of tones that could be modified
 - digital intensity module: digital light intensity sensor integrated circuit used for two-wire serial bus interface
 - solar panel, push button module, display module, control board, led module
+
+## Progress:
+- finished building portion of project
+- finished coding 9 of 11 projects
+- have yet to figure out exact Servo movement
+
+## Challenges: 
+- connecting wires, difficult to naviage which jumper goes to which port
+- figuring out movement of Servo
 
 <!-- **Don't forget to replace the text below with the embedding for your milestone video. Go to Youtube, click Share -> Embed, and copy and paste the code to replace what's below.** -->
 
@@ -59,9 +68,15 @@ My starter project was the Useless Box, which is a box that turns itself off whe
 - when switch on, motor turns on which causes arm to turn and turns off switch
 - struggled with soldering at first, acrylic panels were off center and brittle
 
+## Components:
+- set of switches
+- PCB board
+- motor
+- LED: turns on and shines red when box is opened / switch is turned on
+
 ## Challenges Faced
 - putting together box, sanding down pieces and replacing them
-- soldering on circuit board (PCB)
+- soldering on circuit board (PCB), did not heat up wires enough
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/ec8RczE3qd8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
