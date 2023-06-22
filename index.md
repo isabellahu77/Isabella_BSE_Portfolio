@@ -40,7 +40,7 @@ My project is a solar tracker, which tracks where there is the most light, as we
 - completed build process, as well as most of Arduino coding portion (9 of 11 proj)
 - struggled with connecting pair of wires, code for movement of servos
 
-### Components: 
+## Components: 
 - photoresister sensor: changes its resistance when light shines on it
 - humidity and temperature sensor: detects and measures dampness and air temperature
 - passive buzzer: plays variety of tones that could be modified
@@ -59,7 +59,7 @@ My starter project was the Useless Box, which is a box that turns itself off whe
 - when switch on, motor turns on which causes arm to turn and turns off switch
 - struggled with soldering at first, acrylic panels were off center and brittle
 
-### Challenges Faced
+## Challenges Faced
 - putting together box, sanding down pieces and replacing them
 - soldering on circuit board (PCB)
 
