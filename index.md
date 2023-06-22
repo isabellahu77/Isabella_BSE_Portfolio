@@ -74,7 +74,7 @@ My starter project was the Useless Box, which is a box that turns itself off whe
 - motor
 - LED: turns on and shines red when box is opened / switch is turned on
 
-## Challenges Faced
+## Challenges:
 - putting together box, sanding down pieces and replacing them
 - soldering on circuit board (PCB), did not heat up wires enough
 
