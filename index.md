@@ -96,19 +96,207 @@ My starter project was the Useless Box, which is a box that turns itself off whe
 
 # Code
 <!-- Here's where you'll put your code. The syntax below places it into a block of code. Follow the guide [here]([url](https://www.markdownguide.org/extended-syntax/)) to learn how to customize it to your project needs. 
-
+-->
 ```c++
+/*
+  Solar Tracker - tracks light, temperature, humidity onto LCD Display module, as well
+    as moves the solar panel based on where there is most light. Uses button to reset 
+    the solar panel into its initial position. Can charge powered devices with smart
+    phone charging module.
+  @author Isabella Hu
+  
+  version 6/23
+*/
+
+#include <Servo.h>  
+#include "ServoEasing.hpp"
+#include <Wire.h>
+#include <BH1750.h>
+#include <LiquidCrystal_I2C.h> 
+#include <dht11.h> 
+
+#define photos1  A0   //photoresistance pin to A0
+#define photos2  A1   //photoresistance pin to A1
+#define photos3  A2   //photoresistance pin to A2
+#define photos4  A3   //photoresistance pin to A3
+#define DHT11_PIN 7 //define the DHT11 as the digital port 7
+#define LED 3 //define the LED pin as D3
+#define button 2 //define the pin of the push button module as D2
+#define buzzer 6 // set the pin of the buzzer to digital pin 6
+
+volatile int buttonState;  //the state of the level output by the push
+const float pi = 3.14159265359;
+
+int angle1 = 90;//set the initial angle to 90 degree
+int angle2 = 90;//set the initial angle to 10 degree;keep the solar panels upright to detect the strongest light
+
+unsigned int light; //save the variable of light intensity
+byte res = 0;   //set the rotation accuracy of the servo, the minimum rotation angle 
+byte diff = 15; // error range 
+int temperature = 0;  //save the variable of temperature
+int humidity = 0; //save the variable of humidity
+
+dht11 DHT;
+LiquidCrystal_I2C lcd(0x27, 16, 2); // set the LCD address to 0x27 for a 16 chars and 2 line display
+ServoEasing myservo1; // 1 - bottom, 2 - top
+ServoEasing myservo2;
+BH1750 lightMeter;
+
+
 void setup() {
-  // put your setup code here, to run once:
-  Serial.begin(9600);
-  Serial.println("Hello World!");
+  // Initialize the I2C bus (BH1750 library doesn't do this automatically)
+  Wire.begin();
+  // On esp8266 you can select SCL and SDA pins using Wire.begin(D4, D3);
+  // For Wemos / Lolin D1 Mini Pro and the Ambient Light shield use Wire.begin(D2, D1);
+  lightMeter.begin();
+
+  pinMode(button, INPUT_PULLUP); // initialize digital pin button as an input.
+  attachInterrupt(digitalPinToInterrupt(button), adjust_resolution, FALLING); // external interrupt touch type is falling edge; adjust_resolution is interrupt service function ISR
+  pinMode(LED, OUTPUT); // initialize digital pin LED as an output.
+
+  myservo1.attach(9, angle1);  // set the control pin of servo
+  myservo2.attach(10, angle2);  // set the control pin of servo
+
+  pinMode(photos1, INPUT); //set the mode of pin
+  pinMode(photos2, INPUT);
+  pinMode(photos3, INPUT);
+  pinMode(photos4, INPUT);
+
+  setSpeedForAllServos(25);
+  
+  lcd.init();          // initialize the LCD
+  lcd.backlight();     //set LCD backlight
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
+  moveServo();
+  readLight();
+  readTempandHumidity();
+
+  display();
+}
+
+// controls servo movements, will use 4 ambient light sensors to determine angle that both servos move
+void moveServo() {
+  int L = analogRead(photos1); // left
+  int R = analogRead(photos2); // right 
+  int U = analogRead(photos3); // back
+  int D = analogRead(photos4); // front
+
+  // assuming D is A2 and U is A4
+  // vertical angle
+  if((abs(U-D) > diff && U > D) || (abs(U-D) < diff)) {
+    angle2 = 0;
+  } else {
+    angle2 = 90 - (atan(U / D) / 2 / pi * 360); // changes radians to degrees
+  }
+
+  // assuming A1 is L and A3 is R and D is A2
+  // horizontal angle
+  if (abs(L-R) <= diff) {
+    angle1 = 90;
+  } else if (abs(L-R) > diff && L > R) {
+    angle1 = (atan(D / (L - R)))  / 2 / pi * 360;
+  } else {
+    angle1 = 180 - (atan(D / (L - R)) / 2 / pi * 360);
+  }
+
+  myservo1.startEaseTo(angle1);
+  myservo2.startEaseTo(angle2);
 
 }
-``` -->
+
+// reads light intensity value
+void readLight() {
+  light = lightMeter.readLightLevel();
+}
+
+// reads temperature and humidity values
+void readTempandHumidity() {
+  int chk;
+  chk = DHT.read(DHT11_PIN);    //read data
+  switch (chk) {
+    case DHTLIB_OK:
+      break;
+    case DHTLIB_ERROR_CHECKSUM: //check and return errors
+      break;
+    case DHTLIB_ERROR_TIMEOUT: //timeout and return errors
+      break;
+    default:
+      break;
+  }
+
+  temperature = DHT.temperature;
+  humidity = DHT.humidity;
+}
+
+
+// changes use of button, instead of changing degree movement, resets servo to initial position
+void resetServo() {
+  angle1 = 90;
+  angle2 = 90;
+
+  myservo1.write(angle1);
+  delay(10);
+  myservo2.write(angle2);
+  delay(10);
+}
+
+// displays temp, light, humidity, and number of times reset
+void display() {
+  char str1[5];
+  char str2[2];
+  char str3[2];
+  dtostrf(light, -5, 0, str1); //Format the light value data as a string, left-aligned
+  dtostrf(temperature, -2, 0, str2);
+  dtostrf(humidity, -2, 0, str3);
+
+  //LCD1602 display
+  //display the value of the light intensity
+  lcd.setCursor(0, 0);
+  lcd.print("Light:");
+  lcd.setCursor(6, 0);
+  lcd.print(str1);
+  lcd.setCursor(11, 0);
+  lcd.print("lux");
+
+  //display the value of temperature and humidity
+  lcd.setCursor(0, 1);
+  lcd.print(temperature);
+  lcd.setCursor(2, 1);
+  lcd.print("C");
+  lcd.setCursor(5, 1);
+  lcd.print(humidity);
+  lcd.setCursor(7, 1);
+  lcd.print("%");
+
+  //show the accuracy of rotation
+  lcd.setCursor(11, 1);
+  lcd.print("res:");
+  lcd.setCursor(15, 1);
+  lcd.print(res);
+
+  delay(250);
+}
+
+// resets position of solar, will go back to 0 when reach 10
+void adjust_resolution() {
+  tone(buzzer, 800, 100);
+  digitalWrite(LED, HIGH);  //the LED lights up
+  delay(10);  //delay to eliminate vibration
+  resetServo();
+  
+  if (!digitalRead(button)){
+    if(res < 10){
+      res++;
+    } else{
+      res = 0;
+    }
+  }
+  digitalWrite(LED, LOW);  //the LED lights up
+}
+
+``` 
 
 # Bill of Materials
 <!-- Here's where you'll list the parts in your project. To add more rows, just copy and paste the example rows below.
