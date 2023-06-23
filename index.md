@@ -10,7 +10,7 @@
 <!-- ![Headstone Image](Isabella-Headshot.png) -->
 <img src="Isabella-Headshot.png" width="300">
   
-# Final Milestone
+<!-- # Final Milestone -->
 <!-- For your final milestone, explain the outcome of your project. Key details to include are:
 - What you've accomplished since your previous milestone
 - What your biggest challenges and triumphs were at BSE
