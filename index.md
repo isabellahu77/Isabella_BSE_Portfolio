@@ -57,7 +57,7 @@ My project is a solar tracker, which tracks where there is the most light, as we
 - passive buzzer: plays variety of tones that could be modified
 - digital intensity module: digital light intensity sensor integrated circuit used for two-wire serial bus interface
 - solar panel, push button module, LCD display module, control board, led module
-control board (development board, controls microcontroller) supplies energy to sensors to measure data (temp, humidity, light intensity). Data is displayed on LCD display module and is used to compute the angle the solar tracker is supposed to move to.
+- control board (development board, controls microcontroller) supplies energy to sensors to measure data (temp, humidity, light intensity). Data is displayed on LCD display module and is used to compute the angle the solar tracker is supposed to move to.
 
 ## Progress:
 - finished building portion of project
@@ -82,7 +82,7 @@ My starter project was the Useless Box, which is a box that turns itself off whe
 - PCB board (printed circuit board, non-conductive material with conductive lines, connects electronic components to one another)
 - motor (uses energy to produce mechanical rotation)
 - LED: turns on and shines red when box is opened / switch is turned on
-When you turn the switch, the motor gains power due to the completion of the circuit so it starts rotating, which turns on the LED and moves the arm inside the box to turn the switch off which cuts the circuit and thus makes the motor stop running. 
+- When you turn the switch, the motor gains power due to the completion of the circuit so it starts rotating, which turns on the LED and moves the arm inside the box to turn the switch off which cuts the circuit and thus makes the motor stop running. 
 
 ## Challenges:
 - putting together box, sanding down pieces and replacing them
