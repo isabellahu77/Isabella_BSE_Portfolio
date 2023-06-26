@@ -10,14 +10,14 @@
 <!-- ![Headstone Image](Isabella-Headshot.png) -->
 <img src="Isabella-Headshot.png" width="300">
   
-<!-- # Final Milestone -->
+# Final Milestone
 <!-- For your final milestone, explain the outcome of your project. Key details to include are:
 - What you've accomplished since your previous milestone
 - What your biggest challenges and triumphs were at BSE
 - A summary of key topics you learned about
-- What you hope to learn in the future after everything you've learned at BSE
+- What you hope to learn in the future after everything you've learned at BSE -->
 
-**Don't forget to replace the text below with the embedding for your milestone video. Go to Youtube, click Share -> Embed, and copy and paste the code to replace what's below.**
+<!-- **Don't forget to replace the text below with the embedding for your milestone video. Go to Youtube, click Share -> Embed, and copy and paste the code to replace what's below.**
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/F7M7imOVGug" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> -->
 
@@ -56,7 +56,8 @@ My project is a solar tracker, which tracks where there is the most light, as we
 - humidity and temperature sensor: detects and measures dampness and air temperature
 - passive buzzer: plays variety of tones that could be modified
 - digital intensity module: digital light intensity sensor integrated circuit used for two-wire serial bus interface
-- solar panel, push button module, display module, control board, led module
+- solar panel, push button module, LCD display module, control board, led module
+control board (development board, controls microcontroller) supplies energy to sensors to measure data (temp, humidity, light intensity). Data is displayed on LCD display module and is used to compute the angle the solar tracker is supposed to move to.
 
 ## Progress:
 - finished building portion of project
@@ -72,18 +73,16 @@ My project is a solar tracker, which tracks where there is the most light, as we
 <iframe width="560" height="315" src="https://www.youtube.com/embed/uOYtJBz5YxU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 # Starter Project
-My starter project was the Useless Box, which is a box that turns itself off when you switch it on. It has a set of switches, a circuit board (PCB), a small motor, a LED, an arm, and the box itself. When the switch is turned on, the lid of the box will open due to the arm raising, and the arm will turn off the switch. This project consists of the process of soldering components like resistors, switches, and an LED to the circuit board, and screwing in screws to connect the motor and board to the main box. When you turn the switch, the motor gains power due to the completion of the circuit so it starts rotating, which turns on the LED and moves the arm inside the box to turn the switch off which cuts the circuit and thus makes the motor stop running. There were a few parts in my kit that arrived a bit off center, which caused me to struggle towards the end with putting together the box because I had to sand down a few pieces and the acrylic panels ended up snapping due to how brittle it was, but after switching out the pieces I was able to get the project running.
 
 ## Summary:
-- Usless Box, turns itself off when you turn switch on
-- when switch on, motor turns on which causes arm to turn and turns off switch
-- struggled with soldering at first, acrylic panels were off center and brittle
+My starter project was the Useless Box, which is a box that turns itself off when you switch it on. It has a set of switches, a circuit board (PCB), a small motor, a LED, an arm, and the box itself. When the switch is turned on, the lid of the box will open due to the arm raising, and the arm will turn off the switch. This project consists of the process of soldering components like resistors, switches, and an LED to the circuit board, and screwing in screws to connect the motor and board to the main box. There were a few parts in my kit that arrived a bit off center, which caused me to struggle towards the end with putting together the box because I had to sand down a few pieces and the acrylic panels ended up snapping due to how brittle it was, but after switching out the pieces I was able to get the project running.
 
 ## Components:
-- set of switches
-- PCB board
-- motor
+- set of switches (snap switch: closes circuit when switch turned on, terminal: connects switch to circuit)
+- PCB board (printed circuit board, non-conductive material with conductive lines, connects electronic components to one another)
+- motor (uses energy to produce mechanical rotation)
 - LED: turns on and shines red when box is opened / switch is turned on
+When you turn the switch, the motor gains power due to the completion of the circuit so it starts rotating, which turns on the LED and moves the arm inside the box to turn the switch off which cuts the circuit and thus makes the motor stop running. 
 
 ## Challenges:
 - putting together box, sanding down pieces and replacing them
