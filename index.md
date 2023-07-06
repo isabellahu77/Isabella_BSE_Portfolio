@@ -109,13 +109,13 @@ My starter project was the Useless Box, which is a box that turns itself off whe
 -->
 ```c++
 /*
-  Solar Tracker - tracks light, temperature, humidity onto LCD Display module, as well
+  Solar Tracker - tracks voltage, light, temperature, humidity onto LCD Display module, as well
     as moves the solar panel based on where there is most light. Uses button to reset 
     the solar panel into its initial position. Can charge powered devices with smart
     phone charging module.
   @author Isabella Hu
   
-  version 6/23
+  version 7/6
 */
 
 #include <Servo.h>  
@@ -125,11 +125,14 @@ My starter project was the Useless Box, which is a box that turns itself off whe
 #include <LiquidCrystal_I2C.h> 
 #include <dht11.h> 
 
-#define photos1  A0   //photoresistance pin to A0
+// #define photos1  A0   //photoresistance pin to A0
 #define photos2  A1   //photoresistance pin to A1
 #define photos3  A2   //photoresistance pin to A2
 #define photos4  A3   //photoresistance pin to A3
 #define DHT11_PIN 7 //define the DHT11 as the digital port 7
+#define switchm A0
+#define volttr 12
+#define phototr 13
 #define LED 3 //define the LED pin as D3
 #define button 2 //define the pin of the push button module as D2
 #define buzzer 6 // set the pin of the buzzer to digital pin 6
@@ -138,13 +141,16 @@ volatile int buttonState;  //the state of the level output by the push
 const float pi = 3.14159265359;
 
 int angle1 = 90;//set the initial angle to 90 degree
-int angle2 = 90;//set the initial angle to 10 degree;keep the solar panels upright to detect the strongest light
+int angle2 = 80;//set the initial angle to 10 degree;keep the solar panels upright to detect the strongest light
 
+unsigned long myTime = 10000;
+int flag = 0;
 unsigned int light; //save the variable of light intensity
 byte res = 0;   //set the rotation accuracy of the servo, the minimum rotation angle 
 byte diff = 15; // error range 
 int temperature = 0;  //save the variable of temperature
 int humidity = 0; //save the variable of humidity
+int voltage = 0;
 
 dht11 DHT;
 LiquidCrystal_I2C lcd(0x27, 16, 2); // set the LCD address to 0x27 for a 16 chars and 2 line display
@@ -167,13 +173,18 @@ void setup() {
   myservo1.attach(9, angle1);  // set the control pin of servo
   myservo2.attach(10, angle2);  // set the control pin of servo
 
-  pinMode(photos1, INPUT); //set the mode of pin
+  // pinMode(photos1, INPUT); //set the mode of pin
   pinMode(photos2, INPUT);
   pinMode(photos3, INPUT);
   pinMode(photos4, INPUT);
 
+  pinMode(switchm, INPUT);
+
+  pinMode(volttr, OUTPUT);
+  pinMode(phototr, OUTPUT);
+
   setSpeedForAllServos(25);
-  
+
   lcd.init();          // initialize the LCD
   lcd.backlight();     //set LCD backlight
 }
@@ -183,12 +194,33 @@ void loop() {
   readLight();
   readTempandHumidity();
 
-  display();
+  if (flag == 0) {
+    display();
+  } else {
+    displayVolt();
+  }
+
+  if(millis() >= myTime) {
+    if (flag == 0) {
+      flag = 1;
+    } else {
+      flag = 0;
+    }
+
+    lcd.init();          // initialize the LCD
+    myTime = myTime + 10000;
+  } 
+
 }
 
 // controls servo movements, will use 4 ambient light sensors to determine angle that both servos move
 void moveServo() {
-  int L = analogRead(photos1); // left
+  digitalWrite(volttr, LOW);
+  delay(100);
+  digitalWrite(phototr,HIGH);
+  delay(100);
+  int L = analogRead(switchm); // left
+  delay(100);
   int R = analogRead(photos2); // right 
   int U = analogRead(photos3); // back
   int D = analogRead(photos4); // front
@@ -213,7 +245,6 @@ void moveServo() {
 
   myservo1.startEaseTo(angle1);
   myservo2.startEaseTo(angle2);
-
 }
 
 // reads light intensity value
@@ -247,13 +278,13 @@ void resetServo() {
   angle2 = 90;
 
   myservo1.write(angle1);
-  delay(10);
   myservo2.write(angle2);
   delay(10);
 }
 
 // displays temp, light, humidity, and number of times reset
 void display() {
+
   char str1[5];
   char str2[2];
   char str3[2];
@@ -287,6 +318,28 @@ void display() {
   lcd.print(res);
 
   delay(250);
+}
+
+void displayVolt() {
+
+  digitalWrite(volttr, HIGH);
+  delay(100);
+  digitalWrite(phototr, LOW);
+  delay(100);
+  int voltState = analogRead(switchm);
+  delay(100);
+  double v = map(voltState, 0, 1023, 0, 2500) + 20; // map 0-1023 to 0-2500 and add correction offset
+  v /= 100; // divide by 100 to get the decimal values
+
+  lcd.setCursor(0, 0); //set Cursor at(0,0)
+  lcd.print("Voltage:"); 
+  lcd.setCursor(8, 0);
+  lcd.print(v);
+  lcd.setCursor(13, 0);
+  lcd.print("V");
+
+  delay(250);
+
 }
 
 // resets position of solar, will go back to 0 when reach 10
