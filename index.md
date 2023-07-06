@@ -366,9 +366,13 @@ void adjust_resolution() {
 Don't forget to place the link of where to buy each component inside the quotation marks in the corresponding row after href =. Follow the guide [here]([url](https://www.markdownguide.org/extended-syntax/)) to learn how to customize this to your project needs. -->
 
 | **Part** | **Note** | **Price** | **Link** |
+|:--:|:--:|:--:|:--:|
 | KS0530 DIY Solar Tracking Kit | base of the solar tracker | $69.99 | <a href="https://www.amazon.com/Arduino-A000066-ARDUINO-UNO-R3/dp/B008GRTSV6/](https://www.amazon.com/KEYESTUDIO-Electronic-Temperature-etc-Educational-Programming/dp/B09SYY7HKV"> Link </a> |
+|:--:|:--:|:--:|:--:|
 | Voltage Detection Module Sensor | What the item is used for | $5.89 | <a href="https://www.amazon.com/HiLetgo-Voltage-Detection-Arduino-Electronic/dp/B01HTC4XKY?keywords=voltage+sensor&qid=1670427397&sprefix=voltage+se,aps,96&sr=8-1-spons&psc=1&spLa=ZW5jcnlwdGVkUXVhbGlmaWVyPUExUEoyMTJCVE4wNjhSJmVuY3J5cHRlZElkPUEwMzE1OTE0Mlk0UzZMV1MxMURBUSZlbmNyeXB0ZWRBZElkPUEwMTU3NTk1M0FBQkFFTE1ZMENNUiZ3aWRnZXROYW1lPXNwX2F0ZiZhY3Rpb249Y2xpY2tSZWRpcmVjdCZkb05vdExvZ0NsaWNrPXRydWU%3D&linkCode=sl1&tag=howtoelect0e4-20&linkId=49c5492a9f944e83fe3c290be294680c&language=en_US&ref_=as_li_ss_tl"> Link </a> |
+|:--:|:--:|:--:|:--:|
 | Jumper Wires | What the item is used for | $6.99 | <a href="https://www.amazon.com/EDGELEC-Breadboard-Optional-Assorted-Multicolored/dp/B07GD2BWPY/ref=sr_1_1_sspa?keywords=jumper%2Bwires&qid=1688681267&sr=8-1-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&th=1"> Link </a> |
+|:--:|:--:|:--:|:--:|
 | Breadboard | What the item is used for | $9.99 | <a href="https://www.amazon.com/Breadboards-Solderless-Breadboard-Distribution-Connecting/dp/B07DL13RZH?crid=6T9E1ZJ0A1ZJ&keywords=breadboard&qid=1670423851&sprefix=breadboard,aps,109&sr=8-1-spons&psc=1&spLa=ZW5jcnlwdGVkUXVhbGlmaWVyPUEyMVFBN003NDcwMzhDJmVuY3J5cHRlZElkPUEwNjI2OTk4MjRPNVBNVE5TNEdNRiZlbmNyeXB0ZWRBZElkPUEwNzgyNTA2Mzk3RkFTTTg1Qk9INSZ3aWRnZXROYW1lPXNwX2F0ZiZhY3Rpb249Y2xpY2tSZWRpcmVjdCZkb05vdExvZ0NsaWNrPXRydWU%3D&linkCode=sl1&tag=howtoelect0e4-20&linkId=019fbb8879193ec4d27cdb1a71084734&language=en_US&ref_=as_li_ss_tl"> Link </a> |
 
 <!-- # Other Resources/Examples -->
