@@ -3,7 +3,7 @@
 
 | **Engineer** | **School** | **Area of Interest** | **Grade** |
 |:--:|:--:|:--:|:--:|
-| Isabella H | Homestead | Electrical Engineering | Incoming Junior
+| Isabella H | Homestead | Engineering | Incoming Junior
 
 <!--**Replace the BlueStamp logo below with an image of yourself and your completed project. Follow the guide [here](https://tomcam.github.io/least-github-pages/adding-images-github-pages-site.html) if you need help.** -->
 
@@ -16,6 +16,17 @@
 - What your biggest challenges and triumphs were at BSE
 - A summary of key topics you learned about
 - What you hope to learn in the future after everything you've learned at BSE -->
+My final project, the solar tracker, is able to track voltage, light, temperature, humidity onto LCD Display module, as well as move the solar panel based on where there is most light. It can charge powered devices with a smart phone charging module. A smaller detail would be that you can press the button which plays a sound and lights up an LED to reset the solar panel to its initial position. 
+For my final milestone, I was able to implement one of my modifications, as well as fix the servo movement. By adding a new 3d-printed servo mount, the movement for the servo is a lot smoother than it was before, and operates properly. The modification I included was the voltage sensor, which measures the input voltage of the batteries. The voltage is then displayed onto the display module on the front of the solar tracker, where it shows the rest of the data (light intensity, temperature, humidity). Because the display module is not big enough, the screen will switch between the data of the voltage and the rest of the measurements every 10 seconds. Because the voltage sensor used the same pin as one of my photoresistors, I used two transistors and diodes to constantly switch between the two pins and collect data from both of them while using one pin. 
+My biggest challenges while working on the solar tracker were figuring out the servo movement, and switching between the voltage sensor and photoresistor. I learned about the use of many different components that I never even heard about before, including several sensors and modules, and about the relation of coding with the hardware pieces. In the future, I hope to continue learning more about engineering, and the many different tools, skills, and materials used.
+
+## Progress 
+- new servo mount, helps smooth out the servo movement
+- implement voltage sensor
+
+## Challenges
+- switching between voltage sensor and photoresistor
+- working on servo movement
 
 <!-- **Don't forget to replace the text below with the embedding for your milestone video. Go to Youtube, click Share -> Embed, and copy and paste the code to replace what's below.**
 
