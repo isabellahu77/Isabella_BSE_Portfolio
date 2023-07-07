@@ -1,4 +1,5 @@
 # Solar Tracker
+The solar tracker uses sunlight to move the solar panel and take in solar energy to conveniently turn it into electrical energy for different uses. It is able to track voltage, light, temperature, and humidity onto an LCD Display module, charge powered devices with a smart phone charging module, as well as move the solar panel based on where there is the most light. 
 <!-- Replace this text with a brief description (2-3 sentences) of your project. This description should draw the reader in and make them interested in what you've built. You can include what the biggest challenges, takeaways, and triumphs from completing the project were. As you complete your portfolio, remember your audience is less familiar than you are with all that your project entails! -->
 
 | **Engineer** | **School** | **Area of Interest** | **Grade** |
@@ -13,7 +14,7 @@
 - What your biggest challenges and triumphs were at BSE
 - A summary of key topics you learned about
 - What you hope to learn in the future after everything you've learned at BSE -->
-My final project, the solar tracker, is able to track voltage, light, temperature, humidity onto LCD Display module, as well as move the solar panel based on where there is most light. It can charge powered devices with a smart phone charging module. A smaller detail would be that you can press the button which plays a sound and lights up an LED to reset the solar panel to its initial position. 
+
 For my final milestone, I was able to implement one of my modifications, as well as fix the servo movement. By adding a new 3d-printed servo mount, the movement for the servo is a lot smoother than it was before, and operates properly. The modification I included was the voltage sensor, which measures the input voltage of the batteries. The voltage is then displayed onto the display module on the front of the solar tracker, where it shows the rest of the data (light intensity, temperature, humidity). Because the display module is not big enough, the screen will switch between the data of the voltage and the rest of the measurements every 10 seconds. Because the voltage sensor used the same pin as one of my photoresistors, I used two transistors and diodes to constantly switch between the two pins and collect data from both of them while using one pin. 
 My biggest challenges while working on the solar tracker were figuring out the servo movement, and switching between the voltage sensor and photoresistor. I learned about the use of many different components that I never even heard about before, including several sensors and modules, and about the relation of coding with the hardware pieces. In the future, I hope to continue learning more about engineering, and the many different tools, skills, and materials used.
 
@@ -23,8 +24,8 @@ My biggest challenges while working on the solar tracker were figuring out the s
 - implement voltage sensor : displays it on the display module, switches between displaying other measurements and voltage data every 10 sec
 
 ## Challenges
-- switching between voltage sensor and photoresistor
-- working on servo movement
+- switching between voltage sensor and photoresistor : tried using slide switch first, but didn't want to switch between the sensors mechanically, so used transistors instead to switch it digitally
+- working on servo movement : modified equations for figuring out servo movement again
 
 
 # Second Milestone
@@ -33,11 +34,11 @@ My biggest challenges while working on the solar tracker were figuring out the s
 For my second milestone, I was able to figure out the servo movement to have it track the light, as well as implement the smart phone charging module into my solar tracker. The mount of the solar tracker is not very stable, and due to the structure's geometry, there are a lot of vibrations as the servos move. The solar panel is set to track the light. So using some geometry, it is designed to move toward where there is the most light using the four ambient light sensors. Because of the equations used when calculating the angle of the servos, the solar panel is very unlikely to reach exactly where the light is hitting it. This is because there will always be light registered in the sensors, as it is almost impossible to only have light onto one sensor, or have the light values equal to each other. I plan to work more on the math behind the angles of the servos, and hopefully have more accurate movement before my next milestone. Because the lithium power module was broken in my previous milestone, I couldn’t include the smart phone charging port, but I was able to finish it for this milestone. The power module is connected to the solar panel and a set of batteries which is then connected to the charging port. The solar energy is converted into electric energy via solar panels through the input port. The output port is then interfaced with the rechargeable batteries and the electric energy is saved into the batteries. Before my third milestone, I plan on designing a new servo mount using CAD to combat the shaking of the solar panel, as well as add a few modifiers like having a voltage sensor or having a smartphone to be able to control the project.
 
 ## Progress:
-- finished coding portion of project
-- have yet to build new servo mount
+- finished coding portion of project : have all the projects finished, might need to modify code for servo movement
+- have yet to build new servo mount : 3D print
 
 ## Challenges:
-- figuring out angle of servos based on light sensor values
+- figuring out angle of servos based on light sensor values, using trig functions to determine angle
 - trying to fix servo movement
 
 ## Next Steps:
