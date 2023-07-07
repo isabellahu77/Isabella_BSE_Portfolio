@@ -63,7 +63,7 @@ control board (development board, controls microcontroller) supplies energy to s
 - have yet to figure out exact Servo movement
 
 ## Challenges: 
-- connecting wires, difficult to naviage which jumper goes to which port
+- connecting wires, difficult to navigate which jumper goes to which port
 - figuring out movement of Servo
 
 ## Next Steps: 
