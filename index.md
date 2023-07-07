@@ -5,9 +5,6 @@
 |:--:|:--:|:--:|:--:|
 | Isabella H | Homestead | Engineering | Incoming Junior
 
-<!--**Replace the BlueStamp logo below with an image of yourself and your completed project. Follow the guide [here](https://tomcam.github.io/least-github-pages/adding-images-github-pages-site.html) if you need help.** -->
-
-<!-- ![Headstone Image](Isabella-Headshot.png) -->
 <img src="Isabella-Headshot.png" width="300">
   
 # Final Milestone
@@ -28,11 +25,10 @@ My biggest challenges while working on the solar tracker were figuring out the s
 - switching between voltage sensor and photoresistor
 - working on servo movement
 
-<!-- **Don't forget to replace the text below with the embedding for your milestone video. Go to Youtube, click Share -> Embed, and copy and paste the code to replace what's below.**
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/F7M7imOVGug" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> -->
 
 # Second Milestone
+<iframe width="560" height="315" src="https://www.youtube.com/embed/cYYLtgy1qJs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
 For my second milestone, I was able to figure out the servo movement to have it track the light, as well as implement the smart phone charging module into my solar tracker. The mount of the solar tracker is not very stable, and due to the structure's geometry, there are a lot of vibrations as the servos move. The solar panel is set to track the light. So using some geometry, it is designed to move toward where there is the most light using the four ambient light sensors. Because of the equations used when calculating the angle of the servos, the solar panel is very unlikely to reach exactly where the light is hitting it. This is because there will always be light registered in the sensors, as it is almost impossible to only have light onto one sensor, or have the light values equal to each other. I plan to work more on the math behind the angles of the servos, and hopefully have more accurate movement before my next milestone. Because the lithium power module was broken in my previous milestone, I couldn’t include the smart phone charging port, but I was able to finish it for this milestone. The power module is connected to the solar panel and a set of batteries which is then connected to the charging port. The solar energy is converted into electric energy via solar panels through the input port. The output port is then interfaced with the rechargeable batteries and the electric energy is saved into the batteries. Before my third milestone, I plan on designing a new servo mount using CAD to combat the shaking of the solar panel, as well as add a few modifiers like having a voltage sensor or having a smartphone to be able to control the project.
 
 ## Progress:
@@ -43,25 +39,24 @@ For my second milestone, I was able to figure out the servo movement to have it 
 - figuring out angle of servos based on light sensor values
 - trying to fix servo movement
 
-<!-- **Don't forget to replace the text below with the embedding for your milestone video. Go to Youtube, click Share -> Embed, and copy and paste the code to replace what's below.** -->
+## Next Steps:
+- designing a new servo mount to help with unsteady movement
+- add modifiers: voltage sensor, connecting solar tracker to smartphone app
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/cYYLtgy1qJs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 # First Milestone
+<iframe width="560" height="315" src="https://www.youtube.com/embed/uOYtJBz5YxU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
 My project is a solar tracker, which tracks where there is the most light, as well as tracking the temperature and humidity of the air. In the first milestone, I finished building the entire project, as well as the coding portion of 9 projects (kit comes with 11 total projects). Each individual part works and have been tested, and are mostly combined in the last project. I have yet to figure out the code for determining where the solar panel turns based off the light that is projected onto the tracker. A problem I was currently facing was with the connection of a pair of the wires, because I plugged one of them into the wrong socket, which resulted in a short circuit and damaged the sensor I was working with. The solar panel does not move very smoothly, and I plan to figure out what is causing that, as well as implement the actual movement for the panel before my next milestone. For what’s next, I plan to continue working on the coding for this project and put back the lithium power module, as well as understand more about the different processes and how different parts work. 
 
-<!-- ## Summary:
-- Solar Tracker, measures solar energy, temperature, and humidity
-- completed build process, as well as most of Arduino coding portion (9 of 11 proj)
-- struggled with connecting pair of wires, code for movement of servos -->
-
-## Components: 
+### Components: 
 - photoresister sensor: changes its resistance when light shines on it
 - humidity and temperature sensor: detects and measures dampness and air temperature
 - passive buzzer: plays variety of tones that could be modified
 - digital intensity module: digital light intensity sensor integrated circuit used for two-wire serial bus interface
 - solar panel, push button module, LCD display module, control board, led module
-- control board (development board, controls microcontroller) supplies energy to sensors to measure data (temp, humidity, light intensity). Data is displayed on LCD display module and is used to compute the angle the solar tracker is supposed to move to.
+
+control board (development board, controls microcontroller) supplies energy to sensors to measure data (temp, humidity, light intensity). Data is displayed on LCD display module and is used to compute the angle the solar tracker is supposed to move to.
 
 ## Progress:
 - finished building portion of project
@@ -72,16 +67,18 @@ My project is a solar tracker, which tracks where there is the most light, as we
 - connecting wires, difficult to naviage which jumper goes to which port
 - figuring out movement of Servo
 
-<!-- **Don't forget to replace the text below with the embedding for your milestone video. Go to Youtube, click Share -> Embed, and copy and paste the code to replace what's below.** -->
+## Next Steps: 
+- continue coding : finish and understand all the projects that come with the kit 
+- implement lithium power module and connect it to the solar panel and charging port
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/uOYtJBz5YxU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 # Starter Project
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ec8RczE3qd8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ## Summary:
-My starter project was the Useless Box, which is a box that turns itself off when you switch it on. It has a set of switches, a circuit board (PCB), a small motor, a LED, an arm, and the box itself. When the switch is turned on, the lid of the box will open due to the arm raising, and the arm will turn off the switch. This project consists of the process of soldering components like resistors, switches, and an LED to the circuit board, and screwing in screws to connect the motor and board to the main box. There were a few parts in my kit that arrived a bit off center, which caused me to struggle towards the end with putting together the box because I had to sand down a few pieces and the acrylic panels ended up snapping due to how brittle it was, but after switching out the pieces I was able to get the project running.
+My starter project was the Useless Box, which is a box that turns itself off when you switch it on. It has a set of switches, a circuit board (PCB), a small motor, a LED, an arm, and the box itself. When the switch is turned on, the lid of the box will open due to the arm raising, and the arm will turn off the switch, like a useless box. This project consists of the process of soldering components like resistors, switches, and an LED to the circuit board, and screwing in screws to connect the motor and board to the main box. There were a few parts in my kit that arrived a bit off center, which caused me to struggle towards the end with putting together the box because I had to sand down a few pieces and the acrylic panels ended up snapping due to how brittle it was, but after switching out the pieces I was able to get the project running.
 
-## Components:
+### Components:
 - set of switches (snap switch: closes circuit when switch turned on, terminal: connects switch to circuit)
 - PCB board (printed circuit board, non-conductive material with conductive lines, connects electronic components to one another)
 - motor (uses energy to produce mechanical rotation)
@@ -90,10 +87,13 @@ My starter project was the Useless Box, which is a box that turns itself off whe
 When you turn the switch, the motor gains power due to the completion of the circuit so it starts rotating, which turns on the LED and moves the arm inside the box to turn the switch off which cuts the circuit and thus makes the motor stop running. 
 
 ## Challenges:
-- putting together box, sanding down pieces and replacing them
-- soldering on circuit board (PCB), did not heat up wires enough
+- putting together box, sanding down acrylic pieces and replacing them because they were broken
+- soldering on circuit board (PCB), did not heat up wires enough which caused the solder wire to not stick onto the board.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/ec8RczE3qd8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+## Next Steps:
+- add different features to box
+- ex. have different arm movements instead of just opening and closing
+- ex. add buzzer, makes a sound when switch turned on
 
 <!-- # Schematics -->
 <!-- Here's where you'll put images of your schematics. [Tinkercad](https://www.tinkercad.com/blog/official-guide-to-tinkercad-circuits) and [Fritzing](https://fritzing.org/learning/) are both great resoruces to create professional schematic diagrams, though BSE recommends Tinkercad becuase it can be done easily and for free in the browser. -->
