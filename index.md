@@ -7,6 +7,7 @@ The solar tracker uses sunlight to move the solar panel and take in solar energy
 | Isabella H | Homestead | Engineering | Incoming Junior
 
 <img src="Isabella-Headshot.png" width="300">
+<img src="Isabella-Project.png" width="300">
   
 # Final Milestone
 <iframe width="560" height="315" src="https://www.youtube.com/embed/n3-FtFyl4xc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
