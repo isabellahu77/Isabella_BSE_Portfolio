@@ -19,7 +19,8 @@ My biggest challenges while working on the solar tracker were figuring out the s
 
 ## Progress 
 - new servo mount, helps smooth out the servo movement
-- implement voltage sensor
+- new math implementation: more accurate than previous equations, uses horizontal angle information to determine vertical angle information
+- implement voltage sensor : displays it on the display module, switches between displaying other measurements and voltage data every 10 sec
 
 ## Challenges
 - switching between voltage sensor and photoresistor
