@@ -9,12 +9,6 @@ The solar tracker uses sunlight to move the solar panel and take in solar energy
 <img src="Isabella-Headshot.png" width="300">
   
 # Final Milestone
-<!-- For your final milestone, explain the outcome of your project. Key details to include are:
-- What you've accomplished since your previous milestone
-- What your biggest challenges and triumphs were at BSE
-- A summary of key topics you learned about
-- What you hope to learn in the future after everything you've learned at BSE -->
-
 For my final milestone, I was able to implement one of my modifications, as well as fix the servo movement. By adding a new 3d-printed servo mount, the movement for the servo is a lot smoother than it was before, and operates properly. The modification I included was the voltage sensor, which measures the input voltage of the batteries. The voltage is then displayed onto the display module on the front of the solar tracker, where it shows the rest of the data (light intensity, temperature, humidity). Because the display module is not big enough, the screen will switch between the data of the voltage and the rest of the measurements every 10 seconds. Because the voltage sensor used the same pin as one of my photoresistors, I used two transistors and diodes to constantly switch between the two pins and collect data from both of them while using one pin. 
 My biggest challenges while working on the solar tracker were figuring out the servo movement, and switching between the voltage sensor and photoresistor. I learned about the use of many different components that I never even heard about before, including several sensors and modules, and about the relation of coding with the hardware pieces. In the future, I hope to continue learning more about engineering, and the many different tools, skills, and materials used.
 
