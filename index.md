@@ -132,7 +132,6 @@ When you turn the switch, the motor gains power due to the completion of the cir
 #include <LiquidCrystal_I2C.h> 
 #include <dht11.h> 
 
-// #define photos1  A0   //photoresistance pin to A0
 #define photos2  A1   //photoresistance pin to A1
 #define photos3  A2   //photoresistance pin to A2
 #define photos4  A3   //photoresistance pin to A3
