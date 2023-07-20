@@ -122,12 +122,12 @@ When you turn the switch, the motor gains power due to the completion of the cir
     phone charging module.
   @author Isabella Hu
   
-  version 7/6
+  version 7/19
 */
 
 #include <Servo.h>  
 #include "ServoEasing.hpp"
-#include <Wire.h>
+#include <Wire.h> 
 #include <BH1750.h>
 #include <LiquidCrystal_I2C.h> 
 #include <dht11.h> 
@@ -150,8 +150,9 @@ const float pi = 3.14159265359;
 int angle1 = 90;//set the initial angle to 90 degree
 int angle2 = 80;//set the initial angle to 10 degree;keep the solar panels upright to detect the strongest light
 
-unsigned long myTime = 10000;
+double v = 0.0;
 int flag = 0;
+int state = 0;
 unsigned int light; //save the variable of light intensity
 byte res = 0;   //set the rotation accuracy of the servo, the minimum rotation angle 
 byte diff = 15; // error range 
@@ -167,7 +168,9 @@ BH1750 lightMeter;
 
 
 void setup() {
-  // Initialize the I2C bus (BH1750 library doesn't do this automatically)
+  Serial.begin(9600);
+
+  // Initialize the I2C bus (BH1750 library doesn't do this automatically)h
   Wire.begin();
   // On esp8266 you can select SCL and SDA pins using Wire.begin(D4, D3);
   // For Wemos / Lolin D1 Mini Pro and the Ambient Light shield use Wire.begin(D2, D1);
@@ -180,7 +183,6 @@ void setup() {
   myservo1.attach(9, angle1);  // set the control pin of servo
   myservo2.attach(10, angle2);  // set the control pin of servo
 
-  // pinMode(photos1, INPUT); //set the mode of pin
   pinMode(photos2, INPUT);
   pinMode(photos3, INPUT);
   pinMode(photos4, INPUT);
@@ -200,24 +202,28 @@ void loop() {
   moveServo();
   readLight();
   readTempandHumidity();
+  
+  if(Serial.available() > 0){ // Checks whether data is comming from the serial port
+   state = Serial.read(); // Reads the data from the serial port
+  }
+
+  if (state == '0') {
+    flag =0; 
+    // display();
+    Serial.println("Displaying temp, humidity, light data");
+  } else if (state == '1') {
+    flag = 1;
+    // displayVolt();
+    Serial.println("Display voltage data");
+  }
 
   if (flag == 0) {
     display();
+    Serial.println("Temperature:" + (String)temperature +  "C Humidity:" + (String)humidity + "% Light:" + (String)light + "lux");
   } else {
     displayVolt();
+    Serial.println("Voltage:" + (String)v + "V");
   }
-
-  if(millis() >= myTime) {
-    if (flag == 0) {
-      flag = 1;
-    } else {
-      flag = 0;
-    }
-
-    lcd.init();          // initialize the LCD
-    myTime = myTime + 10000;
-  } 
-
 }
 
 // controls servo movements, will use 4 ambient light sensors to determine angle that both servos move
@@ -232,14 +238,6 @@ void moveServo() {
   int U = analogRead(photos3); // back
   int D = analogRead(photos4); // front
 
-  // assuming D is A2 and U is A4
-  // vertical angle
-  if((abs(U-D) > diff && U > D) || (abs(U-D) < diff)) {
-    angle2 = 0;
-  } else {
-    angle2 = 90 - (atan(U / D) / 2 / pi * 360); // changes radians to degrees
-  }
-
   // assuming A1 is L and A3 is R and D is A2
   // horizontal angle
   if (abs(L-R) <= diff) {
@@ -249,6 +247,25 @@ void moveServo() {
   } else {
     angle1 = 180 - (atan(D / (L - R)) / 2 / pi * 360);
   }
+
+  // assuming D is A2 and U is A4
+  // vertical angle
+  int S2;
+  int S4;
+  if(angle1 <= 90) {
+    S2 = L + D;
+    S4 = R + U;
+  } else {
+    S2 = D + R;
+    S4 = L + U;
+  }
+
+  if(abs(S4-S2) < diff || S4 >= S2) {
+    int S0 = S2;
+    S2 = S4;
+    S4 = S0;
+  }
+  angle2 = 90 - (atan(S4 / (S2 - S4)) / 2 / pi * 360);
 
   myservo1.startEaseTo(angle1);
   myservo2.startEaseTo(angle2);
@@ -278,7 +295,6 @@ void readTempandHumidity() {
   humidity = DHT.humidity;
 }
 
-
 // changes use of button, instead of changing degree movement, resets servo to initial position
 void resetServo() {
   angle1 = 90;
@@ -286,12 +302,11 @@ void resetServo() {
 
   myservo1.write(angle1);
   myservo2.write(angle2);
-  delay(10);
+  delay(1000);
 }
 
 // displays temp, light, humidity, and number of times reset
 void display() {
-
   char str1[5];
   char str2[2];
   char str3[2];
@@ -328,15 +343,15 @@ void display() {
 }
 
 void displayVolt() {
-
   digitalWrite(volttr, HIGH);
   delay(100);
   digitalWrite(phototr, LOW);
   delay(100);
   int voltState = analogRead(switchm);
   delay(100);
-  double v = map(voltState, 0, 1023, 0, 2500) + 20; // map 0-1023 to 0-2500 and add correction offset
+  v = map(voltState, 0, 1023, 0, 2500); // map 0-1023 to 0-2500 and add correction offset
   v /= 100; // divide by 100 to get the decimal values
+  v -= 20;
 
   lcd.setCursor(0, 0); //set Cursor at(0,0)
   lcd.print("Voltage:"); 
@@ -346,7 +361,6 @@ void displayVolt() {
   lcd.print("V");
 
   delay(250);
-
 }
 
 // resets position of solar, will go back to 0 when reach 10
