@@ -306,6 +306,7 @@ void resetServo() {
 
 // displays temp, light, humidity, and number of times reset
 void display() {
+
   char str1[5];
   char str2[2];
   char str3[2];
@@ -342,6 +343,7 @@ void display() {
 }
 
 void displayVolt() {
+
   digitalWrite(volttr, HIGH);
   delay(100);
   digitalWrite(phototr, LOW);
@@ -360,6 +362,7 @@ void displayVolt() {
   lcd.print("V");
 
   delay(250);
+
 }
 
 // resets position of solar, will go back to 0 when reach 10
@@ -378,7 +381,6 @@ void adjust_resolution() {
   }
   digitalWrite(LED, LOW);  //the LED lights up
 }
-
 ``` 
 
 # Bill of Materials
